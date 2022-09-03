@@ -1,0 +1,16 @@
+---
+apiVersion: velero.io/v1
+kind: Schedule
+metadata:
+  name: backup-schedule
+  namespace: velero
+spec:
+  schedule: "15 1 * * *" # (https://crontab.guru/)
+  template:
+    hooks: {}
+    includedNamespaces:
+      - kafka
+    includedResources:
+      - persistentvolumeclaims
+      - persistentvolumes
+    ttl: 2160h0m0s # 90Days retention

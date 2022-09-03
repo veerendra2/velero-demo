@@ -1,0 +1,27 @@
+---
+apiVersion: velero.io/v1
+kind: BackupStorageLocation
+metadata:
+  name: default
+  namespace: velero
+spec:
+  config:
+    resourceGroup: resgrp
+    storageAccount: serviceccount
+    subscriptionId: id
+  default: true
+  objectStorage:
+    bucket: default
+  provider: azure
+---
+apiVersion: velero.io/v1
+kind: VolumeSnapshotLocation
+metadata:
+  name: default
+  namespace: velero
+spec:
+  config:
+    apiTimeout: 5m
+    resourceGroup: resgrp
+    subscriptionId: id
+  provider: azure

@@ -1,0 +1,9 @@
+---
+bases:
+  - ../../resources
+resources:
+  - backup-locations.yaml
+  - backup-schedules/kafka-pvc.yaml
+
+commonLabels:
+  app: velero
